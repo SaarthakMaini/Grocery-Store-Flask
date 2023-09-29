@@ -1,5 +1,5 @@
-x=1;
-itemcount=1;
+x=0;
+itemcount=0;
 
 
 function addingCategory(){
@@ -19,6 +19,8 @@ function addingCategory(){
 function deleteItem(id){
         var d = id.id;
         document.getElementById(d).parentElement.parentElement.parentElement.remove();
+        x=0;
+        itemcount=0;
 
 }
 
@@ -26,15 +28,32 @@ function AddItem(id){
         var d =id.id;
         var h ="item_" + itemcount;
         var c ="action_" + itemcount;
-        let html = "<div class='card' style='width: 13rem;'><li class='list-group-item' id ='" + h + "'>" + h + "</li><br><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#addProduct' onclick='Actions(this)' id='"+ c +"'>Actions</button></div><div class='modal fade' id='addProduct' tabindex='-1' role='dialog' aria-labelledby='addItemTitle' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><div class='modal-body'><h1 id='the-heading'></h1><form><div class='form-group'><label for='message-text' class='col-form-label'>Product Name:</label><textarea class='form-control'></textarea><label for='message-text' class='col-form-label'>Quantity:</label><textarea class='form-control'></textarea><label for='message-text' class='col-form-label'>Rate:</label><textarea class='form-control'></textarea></div></form></div><div class='modal-footer'><button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button><button input='submit' type='button' class='btn btn-primary' onclick='addingCategory()' data-dismiss='modal'>Save</button></div></div></div></div>";
+        var n ="n" + itemcount;
+        var r ="r" + itemcount;
+        var q ="q" + itemcount;
+        let html = "<div class='card' style='width: 13rem;'><li class='list-group-item' id ='" + h + "'>" + h + "</li><br><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#addProduct' onclick='Actions(this)' id='"+ c +"'>Actions</button></div><div class='modal fade' id='addProduct' tabindex='-1' role='dialog' aria-labelledby='addItemTitle' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><div class='modal-body'><h1 id='the-heading'></h1><form><div class='form-group'><label for='message-text' class='col-form-label'>Product Name:</label><textarea class='form-control' id ='" + n + "'></textarea><label for='message-text' class='col-form-label'>Quantity:</label><textarea class='form-control' id ='" + q + "'></textarea><label for='message-text' class='col-form-label'>Rate:</label><textarea class='form-control' id ='" + r + "'></textarea></div></form></div><div class='modal-footer'><button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button><button input='submit' type='button' class='btn btn-primary' onclick='editingitem("+n+","+q+","+r+","+h+")' data-dismiss='modal'>Save</button></div></div></div></div>";
         document.getElementById(d).insertAdjacentHTML("beforebegin", html);
         itemcount++;
 }
 
 function Actions(id){
         var d = id.id;
-        var space = "   ";
         var text = document.getElementById(d).previousSibling.previousSibling.id; 
         document.getElementById("the-heading").innerHTML = text;
 }
 
+function editingitem(n,q,r,h){
+        var i1 =n.id;
+        var i2 =q.id;
+        var i3 =r.id;
+        var i4 =h.id;
+        var text = document.getElementById(i1).value;
+    const e = document.getElementById(i4);
+    document.getElementById(i4).textContent = text;
+    let quantity = document.getElementById(i2).value;
+    let rate = document.getElementById(i3).value;
+    let html = "<p> Quantity: " + quantity + "</p>";
+    e.insertAdjacentHTML("afterend", html);
+    let html2 = "<p> Rate: " + rate + "</p>";
+    e.insertAdjacentHTML("afterend", html2);
+}

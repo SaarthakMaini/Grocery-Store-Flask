@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        .animate {
+        animation: moveAnimation 2s ease-in-out forwards;
+        }
+
+        @keyframes moveAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+
+    </style>
+</head>
+<body>
+
+<div style="margin:0;height: 100%;top:0;width: 100%;position: static;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between" style="padding:10px;">
+
+        <a class="navbar-brand">Manager Dashboard</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="border-right: 1px solid;">Summary</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <div id="txt" style="top:50%;left:50%;position: absolute;transform: translate(-50%, -50%);opacity:1 ;">
+        No categories or products created.
+    </div>
+    
+    <button type="button" class="btn btn-primary btn btn-primary px-5 py-2 position-fixed bottom-0 end-0 mb-3 mx-3" style="z-index:100"data-toggle="modal" data-target="#addItem">+</button>
+
+    <div class="modal fade" id="addItem" tabindex="-1" role="dialog" aria-labelledby="addItemTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                          <label for="message-text" class="col-form-label">Category Name:</label>
+                          <textarea class="form-control" id="product-name"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button input="submit" type="button" class="btn btn-primary" onclick="addingCategory()" data-dismiss="modal" id="animateButton">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div id="hello" style="display: flex; flex-wrap: wrap;margin-top: 20px; margin-left: 30px;gap:2em;">
+
+    </div>
+
+<script src="something.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
